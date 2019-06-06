@@ -317,7 +317,7 @@ const AppNavigator = createStackNavigator(
     AccordionCustomHeaderContent: { screen: AccordionCustomHeaderContent }
   },
   {
-    initialRouteName: "Drawer",
+    initialRouteName: "Selection",
     headerMode: "none"
   }
 );

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Slider } from 'react-native';
+import { StyleSheet, Slider, View,LayoutAnimation } from 'react-native';
 import {
   Thumbnail,
   Container,
@@ -12,20 +12,36 @@ import {
   Text,
   Left,
   Right,
-  Body
+  Body,
+  Item,
+  Input
 } from "native-base";
 
 import VerticalSlider from 'rn-vertical-slider'
-
+import Animation from 'lottie-react-native';
+import LottieView from 'lottie-react-native';
 //import styles from "./styles";
 const styles=StyleSheet.create({
+  text:{
+    color:"#ffffff",
+    fontSize: 20,
+    justifyContent: 'space-between'
+  },
+
   container: {
     backgroundColor: "#484848"  // 背景色
   },
   header: {
     backgroundColor: "#000000"  // 背景色
   },
+  animationContainer: {
+      zIndex:90,
+      alignSelf:'center',
+      backgroundColor: 'rgba(255, 255, 255, 0.0)',
+      marginTop:0,
+      position:'absolute'
 
+  },
   mb: {
     marginBottom: 10
   }
@@ -34,10 +50,26 @@ const logo = require("../../../assets/record.png");
 
 
 class Mastermode extends Component {
+
+
   constructor() {
       super();
       this.state = { iconName: logo, volumn: 0, hvolumn: 0 };
     }
+    componentDidMount() {
+        this.initAnimation();
+    }
+
+    initAnimation(){
+      if (!this.animation){
+        setTimeout(() => {
+          this.initAnimation();
+        }, 100);
+      } else {
+          this.animation.play();
+      }
+    }
+
 
   render() {
     console.log('now', this.state.volumn);
@@ -59,6 +91,11 @@ class Mastermode extends Component {
         </Header>
 
         <Content padder>
+
+        <Text  style={styles.text}> 00:00:00  </Text>
+
+
+
         <Button
           transparent
           onPress={ () =>{ this.setState({iconName: require("../../../assets/camera.png") });
@@ -90,7 +127,7 @@ class Mastermode extends Component {
 
           }}
           width={15}
-          height={300}
+          height={200}
           step={0.1}
           borderRadius={5}
           minimumTrackTintColor={"#33d9e1"}
@@ -127,6 +164,32 @@ class Mastermode extends Component {
           >
             <Text>{Number((this.state.hvolumn).toFixed(1))}</Text>
           </Badge>
+
+
+             <Animation
+                ref={animation => { this.animation = animation; }}
+                loop={true}
+                style={{
+                  width: 60,
+                  height: 60,
+                }}
+                source={require('../../../assets/animation/logo.json')}
+              />
+
+
+              <Item style={{width:200}}>
+                <Input placeholder="Record Title"
+                 onChangeText={val => this.setState({ user: val })}
+                 style={{marginBottom: 0, fontSize:20, color:'#ffff'}}
+                />
+              </Item>
+
+              <Badge
+                style={{ backgroundColor: "black" }}
+                textStyle={{ color: "white" }}
+              >
+                <Text>{this.state.user}</Text>
+              </Badge>
 
 
         </Content>
