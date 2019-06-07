@@ -2,6 +2,7 @@ package com.nativebasekitchensink;
 import com.airbnb.android.react.lottie.LottiePackage;
 import android.app.Application;
 
+import com.dooboolab.RNAudioRecorderPlayerPackage;
 import com.facebook.react.ReactApplication;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNAudioRecorderPlayerPackage(),
             new LottiePackage(),
             new VectorIconsPackage(),
             new RNGestureHandlerPackage(),

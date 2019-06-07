@@ -8,7 +8,7 @@ import Selection from "./screens/aatops/Selection";
 import Mastermode from "./screens/aatops/Mastermode";
 import Master1 from "./screens/aatops/Master1";
 import Recordermode from "./screens/aatops/Recordermode";
-
+import Recordermode2 from "./screens/recordermode/RecorderMode";
 
 import Header from "./screens/Header/";
 import Header1 from "./screens/Header/1";
@@ -193,6 +193,8 @@ const AppNavigator = createStackNavigator(
   {
     Drawer: { screen: Drawer },  //navigate 到 Drawer
     Selection: { screen: Selection },  //selection go to header  //改 to drawer
+    Recordermode2:{ screen: Recordermode2 },
+
     Header1: { screen: Header1 },
     Header2: { screen: Header2 },
     Header3: { screen: Header3 },
@@ -317,7 +319,7 @@ const AppNavigator = createStackNavigator(
     AccordionCustomHeaderContent: { screen: AccordionCustomHeaderContent }
   },
   {
-    initialRouteName: "Selection",
+    initialRouteName: "Recordermode2",
     headerMode: "none"
   }
 );

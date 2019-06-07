@@ -15,17 +15,14 @@
     "flow-bin": "0.78.0",
     "flow-typed": "2.5.1",
     "husky": "0.14.3",
-    "jest": "24.1.0",
+    "jest": "24.8.0",
     "jest-expo": "^32.0.0",
-    "metro-react-native-babel-preset": "0.52.0",
+    "metro-react-native-babel-preset": "0.54.1",
     "prettier": "1.5.3",
-    "react-test-renderer": "16.6.3",
+    "react-test-renderer": "16.8.3",
     "@babel/core": "7.4.5",
     "@babel/runtime": "7.4.5",
-    "babel-jest": "24.8.0",
-    "jest": "24.8.0",
-    "metro-react-native-babel-preset": "0.54.1",
-    "react-test-renderer": "16.8.3"
+    "babel-jest": "24.8.0"
   },
   "scripts": {
     "start": "react-native start",
